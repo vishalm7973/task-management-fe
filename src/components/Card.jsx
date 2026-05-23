@@ -1,9 +1,13 @@
 import React from 'react'
 import userIcon from '../assets/userIcon.png'
 import PropTypes from 'prop-types'
+import {useDraggable} from '@dnd-kit/react';
 
+export const Card = ({id, title, user }) => {
 
-export const Card = ({ title, user }) => {
+    const {ref} = useDraggable({
+        id: id,
+      });
 
     const hasUser = user && user.firstName && user.lastName;
 
@@ -12,7 +16,7 @@ export const Card = ({ title, user }) => {
     }
 
     return (
-        <div className="w-full rounded-2xl bg-white shadow-lg p-3 border border-gray-200 mb-2">
+        <div ref={ref} className="w-full rounded-2xl bg-white shadow-lg p-3 border border-gray-200 mb-2">
             <h2 className="ml-2 text-l font-bold text-gray-700">
                 {title}
             </h2>
@@ -39,6 +43,7 @@ export const Card = ({ title, user }) => {
 }
 
 Card.propTypes = {
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     user: PropTypes.shape({
         firstName: PropTypes.string,
