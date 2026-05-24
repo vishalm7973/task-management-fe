@@ -3,13 +3,12 @@ import userIcon from '../assets/userIcon.png'
 import PropTypes from 'prop-types'
 import {useDraggable} from '@dnd-kit/react';
 
-export const Card = ({id, title, user }) => {
-
+export const Card = ({id, title, user, bodyColor }) => {
     const {ref} = useDraggable({
         id: id,
       });
 
-    const hasUser = user && user.firstName && user.lastName;
+    const hasUser = user?.firstName && user?.lastName;
 
     const getUserInitials = (firstName, lastName) => {
         return firstName?.charAt(0).toUpperCase() + lastName?.charAt(0).toUpperCase() || '';
@@ -24,7 +23,7 @@ export const Card = ({id, title, user }) => {
             <div className="flex justify-end">
 
                 {hasUser ? (
-                    <div className="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center font-semibold text-sm">
+                    <div className={`w-7 h-7 rounded-full bg-${bodyColor}-500 text-white flex items-center justify-center font-semibold text-xs`}>
                         {getUserInitials(user.firstName, user.lastName)}
                     </div>
 
@@ -48,5 +47,6 @@ Card.propTypes = {
     user: PropTypes.shape({
         firstName: PropTypes.string,
         lastName: PropTypes.string,
-    })
+    }),
+    bodyColor: PropTypes.string.isRequired,
 }

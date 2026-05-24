@@ -14,31 +14,55 @@ const tasks = [
         id: 2,
         title: "Create UI",
         status: STATUS.IN_PROGRESS,
+        user: {
+            firstName: "Jane",
+            lastName: "Smith",
+        },
     },
     {
         id: 3,
         title: "Create transaction page",
         status: STATUS.COMPLETED,
+        user: {
+            firstName: "Alice",
+            lastName: "Johnson",
+        },
     },
     {
         id: 4,
         title: "LLm Model Integration",
         status: STATUS.PENDING,
+        user: {
+            firstName: "Bob",
+            lastName: "Brown",
+        },
     },
     {
         id: 5,
         title: "Subscription for IOS",
         status: STATUS.IN_PROGRESS,
+        user: {
+            firstName: "Charlie",
+            lastName: "Davis",
+        },
     },
     {
         id: 6,
         title: "Subscription for Android",
         status: STATUS.COMPLETED,
+        user: {
+            firstName: "David",
+            lastName: "Miller",
+        },
     },
     {
         id: 7,
         title: "Tourist page desing",
         status: STATUS.PENDING,
+        user: {
+            firstName: "Eve",
+            lastName: "Wilson",
+        },
     },
     {
         id: 8,
